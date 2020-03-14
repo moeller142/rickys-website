@@ -1,0 +1,18 @@
+
+.app-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    color: white;
+    background-color: black;
+    height: 50px;
+}
+
+.tabLink {
+    color: white;
+    background-color: black;
+}
+
+.tab {
+    margin: 12px;
+}
