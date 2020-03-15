@@ -1,18 +1,40 @@
 
-.app-bar {
+.nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     color: white;
     background-color: black;
-    height: 50px;
+
 }
 
 .tabLink {
     color: white;
-    background-color: black;
 }
 
 .tab {
     margin: 12px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.app {
+    background-color: black;
+    color: white;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+
+}
+
+.logo {
+    width: 400px;
 }
