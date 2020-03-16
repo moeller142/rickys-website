@@ -9,6 +9,9 @@ a:hover {
     color: white;
 }
 
+.dropdown-content div:hover {color: #f1f1f1}
+
+
 .dropdown {
     position: relative;
 }   
@@ -25,8 +28,8 @@ a:hover {
     display: block;
 }
 
-
 .dropdown-content {
+    color: white;
     background-color: gray;
     opacity: .4;
     display: none;
