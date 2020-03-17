@@ -21,7 +21,7 @@ function App() {
             link: 'https://www.instagram.com/ricky_feria_music/?hl=en'
         },
         {
-            title: 'facebook', 
+            title: 'facebook',
             link: 'https://www.facebook.com/RickyFeriaGuitar/?modal=admin_todo_tour',
         },
         {
@@ -37,7 +37,6 @@ function App() {
         }
     }, [])
 
-    // https://docs.google.com/spreadsheets/d/e/2PACX-1vTPzVCSpk2gZ0PGb0iZGX1M5hawDgMsRGpBW0pQCa9NpVAO0hkztu6bGqfHcYTaOHBIG9HzjauyO9jD/pubhtml
     return (
         <div className='app'>
             <Router>
@@ -53,20 +52,23 @@ function App() {
                         <LinkedTab link='/Lessons' title='lessons'></LinkedTab>
                     </div>
                 </div>
-                <Switch>
-                    <Route path='/events'>
-                        <Events />
-                    </Route>
-                    <Route path='/projects'>
-                        <SideProjects />
-                    </Route>
-                    <Route path='/lessons'>
-                        <Lessons />
-                    </Route>
-                    <Route path='/'>
-                        <Home />
-                    </Route>
-                </Switch>
+                <div className='page'>
+                    <Switch>
+                        <Route path='/events'>
+                            <Events />
+                        </Route>
+                        <Route path='/projects'>
+                            <SideProjects />
+                        </Route>
+                        <Route path='/lessons'>
+                            <Lessons />
+                        </Route>
+                        <Route path='/'>
+                            <Home />
+                        </Route>
+                    </Switch>
+
+                </div>
             </Router>
         </div>
 
