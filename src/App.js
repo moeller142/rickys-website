@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import Events from './Events/events';
+import Events from './Pages/Events/events';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
 } from 'react-router-dom';
-import Lessons from './Lessons/lessons';
-import SideProjects from './Side-Projects/side-projects';
-import Home from './Home/home';
-import Tabletop from 'tabletop';
+import Lessons from './Pages/Lessons/lessons';
+import Home from './Pages/Home/home';
 import logo from './assets/logo.jpg'
 import LinkedTab from './components/linked-tab/linked-tab';
+import Discography from './Pages/Discography/Discography';
+import About from './Pages/about/about';
+import Gear from './Pages/Gear/Gear';
+import BackingTracks from './Pages/Backing-Tracks/backing-tracks';
+import Media from './Pages/media/media';
+import { Button } from '@material-ui/core';
+import LinkedTab2 from './components/linked-tab/linked-tab2';
 
 function App() {
     const socialOptions = [
@@ -27,6 +32,27 @@ function App() {
         {
             title: 'youtube',
             link: 'https://www.youtube.com/channel/UCL_E9INNCDg84_Cvx35ydHw?view_as=subscriber'
+        }
+    ];
+
+    const projects = [
+        {
+            title: 'conscious pilot',
+        },
+        {
+            title: 'rix'
+        },
+        {
+            title: 'ricky feria trio'
+        }
+    ]
+
+    const mediaTypes = [
+        {
+            title: 'pictures'
+        },
+        {
+            title: 'videos'
         }
     ]
 
@@ -46,10 +72,15 @@ function App() {
                     </div>
                     <div className='tabs'>
                         <LinkedTab link='/Home' title='home'></LinkedTab>
-                        <LinkedTab link='/Home' title='social' options={socialOptions}></LinkedTab>
-                        <LinkedTab link='/Events' title='events'></LinkedTab>
-                        <LinkedTab link='/Projects' title='projects'></LinkedTab>
+                        <LinkedTab link='/Discography' title='discography' options={projects}></LinkedTab>
+                        <LinkedTab link='/About' title='about'></LinkedTab>
                         <LinkedTab link='/Lessons' title='lessons'></LinkedTab>
+                        <LinkedTab link='/gear' title='gear'></LinkedTab>
+                        <LinkedTab link='/backing-tracks' title='backing tracks'></LinkedTab>
+                        <LinkedTab link='/Media' title='media'></LinkedTab>
+                        <LinkedTab link='/Events' title='events'></LinkedTab>
+                        <LinkedTab2/>
+                        <Button>CONTACT</Button>
                     </div>
                 </div>
                 <div className='page'>
@@ -57,8 +88,20 @@ function App() {
                         <Route path='/events'>
                             <Events />
                         </Route>
-                        <Route path='/projects'>
-                            <SideProjects />
+                        <Route path='/discography'>
+                            <Discography />
+                        </Route>
+                        <Route path='/about'>
+                            <About />
+                        </Route>
+                        <Route path='/gear'>
+                            <Gear />
+                        </Route>
+                        <Route path='/backing-tracks'>
+                            <BackingTracks />
+                        </Route>
+                        <Route path='/media'>
+                            <Media />
                         </Route>
                         <Route path='/lessons'>
                             <Lessons />

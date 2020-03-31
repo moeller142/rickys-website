@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/pages.css'
-import main from '../assets/website_main_photo.png'
-import main2 from '../assets/main_photo.jpg'
+import main2 from '../../assets/main_photo.jpg'
 
 export default function Home() {
 
