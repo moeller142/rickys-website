@@ -4,6 +4,6 @@ import '../styles/pages.css'
 export default function About() {
 
     return (<div>
-        About
+        About- TEST
     </div>)
 }
