@@ -18,8 +18,12 @@ import BackingTracks from './Pages/Backing-Tracks/backing-tracks';
 import Media from './Pages/media/media';
 import { Button } from '@material-ui/core';
 import LinkedTab2 from './components/linked-tab/linked-tab2';
+import Header from './components/header-bar/header';
+import Header2 from './components/header-bar/header2';
 
 function App() {
+
+
     const socialOptions = [
         {
             title: 'instagram',
@@ -66,7 +70,8 @@ function App() {
     return (
         <div className='app'>
             <Router>
-                <div className='nav-bar'>
+                <Header/>
+                {/* <div className='nav-bar'>
                     <div>
                         <img className='logo' src={logo} alt='idk' />
                     </div>
@@ -82,7 +87,7 @@ function App() {
                         <LinkedTab2/>
                         <Button>CONTACT</Button>
                     </div>
-                </div>
+                </div> */}
                 <div className='page'>
                     <Switch>
                         <Route path='/events'>

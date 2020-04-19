@@ -4,7 +4,7 @@ import '../styles/pages.css'
 export default function BackingTracks() {
 
     return (<div>
-        <iframe src='https://www.youtube.com/embed/E7wJTI-1dvQ'
+        <iframe src='https://www.youtube.com/watch?v=_xrUXzVGSko'
         frameBorder='0'
         allow='autoplay; encrypted-media'
         allowFullScreen

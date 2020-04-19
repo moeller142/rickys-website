@@ -7,8 +7,8 @@ export default function LinkedTab({ link, title, options }) {
     const toggleOptionsOpen = () => setOptionsOpen(!optionsOpen);
 
     return (
-        <div className='dropdown'>
-            <div className='tab'>
+        <div className='tab'>
+            <div>
                 <a className='tabLink' href={link} onMouseEnter={toggleOptionsOpen} onMouseLeave={toggleOptionsOpen}>{title}</a>
             </div>
             {

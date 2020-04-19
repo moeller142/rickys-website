@@ -1,0 +1,30 @@
+.tabLink {
+    color: white;
+}
+
+.tab {
+    margin: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* display: flex;
+    justify-content: space-around;
+    flex-direction: column; */
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    /* height: 130px; */
+}
+
+.hamburger-menu {
+
+}
