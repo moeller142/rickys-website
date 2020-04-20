@@ -3,10 +3,11 @@
 }
 
 .tab {
-    margin: 12px;
+    margin: 12px 36px 12px 6px;
     position: absolute;
     top: 50%;
     left: 50%;
+    color: white;
     /* display: flex;
     justify-content: space-around;
     flex-direction: column; */
@@ -23,6 +24,10 @@
     width: 100%;
     height: auto;
     /* height: 130px; */
+}
+
+.white {
+    color: white;
 }
 
 .hamburger-menu {

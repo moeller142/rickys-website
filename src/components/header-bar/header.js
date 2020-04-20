@@ -4,6 +4,8 @@ import logo from '../../assets/logo.jpg'
 import LinkedTab2 from '../linked-tab/linked-tab2'
 import { Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import Drawer from '@material-ui/core/Drawer';
+import IconButton from '@material-ui/core/IconButton';
 
 export default function Header() {
     const getWindowDimension = () => {
@@ -17,6 +19,7 @@ export default function Header() {
         return width;
     };
     const [width, setWidth] = useState(getWindowDimension());
+    const [sideMenuOpen, openSideMenuOpen] = useState(false);
 
     const handleResize = () => {
         setWidth(getWindowDimension())
@@ -51,6 +54,7 @@ export default function Header() {
         }
     ]
 
+
     if (width > minLargeWidth) {
         return (
             <div className='nav-bar'>
@@ -66,41 +70,26 @@ export default function Header() {
                     <LinkedTab link='/backing-tracks' title='backing tracks'></LinkedTab>
                     <LinkedTab link='/Media' title='media'></LinkedTab>
                     <LinkedTab link='/Events' title='events'></LinkedTab>
-                    {/* <LinkedTab2/> */}
-                    {/* <Button>CONTACT</Button> */}
                 </div>
             </div>)
     } else {
-        return (
-            <div className='nav-bar'>
-                <div>
-                    <img className='logo' src={logo} alt='idk' />
+
+            return (<>
+                {/* <Drawer anchor='right' open={sideMenuOpen}>
+                    Test
+                </Drawer> */}
+                <div className='nav-bar'>
+                    <div>
+                        <img className='logo' src={logo} alt='idk' />
+                    </div>
+                    <div className='tab'>
+                        <IconButton onClick={() => openSideMenuOpen(true)} aria-label="ig" >
+                            <MenuIcon className='white' fontSize='large' />
+                        </IconButton>
+
+                    </div>
                 </div>
-                <div className='tab'>
-                    <MenuIcon fontSize='large'/>
-                </div>
-            </div>
-        );
+                </>
+            );
     }
-
-    // return (
-    //     <div className='nav-bar'>
-    //         <div>
-    //             <img className='logo' src={logo} alt='idk' />
-    //         </div>
-    //         <div className='tabs'>
-
-    //             <MenuIcon />
-    //             <LinkedTab link='/Home' title='home'></LinkedTab>
-    //             <LinkedTab link='/Discography' title='discography' options={projects}></LinkedTab>
-    //             <LinkedTab link='/About' title='about'></LinkedTab>
-    //             <LinkedTab link='/Lessons' title='lessons'></LinkedTab>
-    //             <LinkedTab link='/gear' title='gear'></LinkedTab>
-    //             <LinkedTab link='/backing-tracks' title='backing tracks'></LinkedTab>
-    //             <LinkedTab link='/Media' title='media'></LinkedTab>
-    //             <LinkedTab link='/Events' title='events'></LinkedTab>
-    //             {/* <LinkedTab2/> */}
-    //             <Button>CONTACT</Button>
-    //         </div>
-    //     </div>)
 }
