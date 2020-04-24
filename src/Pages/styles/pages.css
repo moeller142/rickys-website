@@ -1,14 +1,14 @@
-.page {
+/* .page {
     height: 100%;
     margin-top: 130px;;
-}
+} */
 
 html, body, #page, #page>div {
     height: 100%
 }
 
-
+/* 
 .main-photo {
     width: 1725px;
     height: 1000px;
-}
+} */
