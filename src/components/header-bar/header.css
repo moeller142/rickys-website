@@ -1,5 +1,4 @@
 .nav-bar {
-    /* height: 10%; */
     position: fixed;
     top: 0;
     width: 100%;
@@ -24,6 +23,6 @@
 
 .hamburger-menu {
     width: 250px;
-    background-color: #414141;
+    background-color: #25272C;
     height: 100%;
 }

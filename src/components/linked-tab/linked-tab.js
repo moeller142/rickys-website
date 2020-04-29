@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import './linked-tab.css'
 
-export default function LinkedTab({ link, title, options }) {
+export default function LinkedTab({ link, title, options, colorStyle }) {
     const [optionsOpen, setOptionsOpen] = useState(false);
 
     const toggleOptionsOpen = () => setOptionsOpen(!optionsOpen);
 
+    const tabLinkClass = 'tabText ' + colorStyle;
+
     return (
         <div className='tab'>
             <div>
-                <a className='tabLink' href={link} onMouseEnter={toggleOptionsOpen} onMouseLeave={toggleOptionsOpen}>{title}</a>
+                <a className={tabLinkClass} href={link} onMouseEnter={toggleOptionsOpen} onMouseLeave={toggleOptionsOpen}>{title}</a>
             </div>
             {
                 options &&

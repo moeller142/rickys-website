@@ -43,27 +43,24 @@ export default function Events() {
         // })
     }, []);
 
-    function FormRow(data) {
+    function FormRow({data}) {
         function onClick(link) {
             var win = window.open(link, '_blank');
             win.focus()
         }
         return (
             <React.Fragment >
-                <Grid item xs={3}>
-                    <Paper>{data.data.date}</Paper>
+                <Grid justify='center' item xs={2}>
+                    <div className='infoText'>{data.date}</div>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper>{data.data.event}</Paper>
+                <Grid justify='center' item xs={3}>
+                    <div className='infoText' onClick={() => onClick(data.link)}>{data.event}</div>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper>{data.data.project}</Paper>
+                <Grid justify='center' item xs={3}>
+                    <div className='infoText'>{data.project}</div>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper>{data.data.location}</Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Button onClick={() => onClick(data.data.link)}>asdf</Button>
+                <Grid justify='center' item xs={3}>
+                    <div className='infoText'>{data.location}</div>
                 </Grid>
             </React.Fragment>
         );
@@ -71,14 +68,13 @@ export default function Events() {
 
     return (<>
         <div className='header'>Events</div>
-        <div className='root'>
-            {state.length && state.map((event, index) => (
-                // <Grid key={index} container spacing={1}>
-                    <Grid key={index} container item xs={5} spacing={1}>
-                        <FormRow className='row'  data={event} />
-                    </Grid>
-                // </Grid>
-            ))}
-        </div>
+        <Grid alignItems="center" justify='center' container spacing={4}>
+        {state.length && state.map((event, index) => (
+            <Grid alignItems="center" justify='center' container item xs={15} spacing={1}>
+                <FormRow className='row' data={event}/>
+            </Grid>
+        ))}
+
+        </Grid>
     </>)
 }

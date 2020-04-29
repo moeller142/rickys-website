@@ -1,11 +1,14 @@
-.root {
-    flex-grow: 1;
-}
+
 
 .header {
     text-align: center;
     font-size: 48px;
+    margin-bottom: 64px;
 
+}
+
+.infoText {
+    font-size: 24px;
 }
 
 .row {

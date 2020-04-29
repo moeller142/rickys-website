@@ -18,42 +18,67 @@ import Header from './components/header-bar/header';
 import Footer from './components/footer-bar/footer';
 
 function App() {
+    const tabs = [
+        {
+            link: '/home',
+            title: 'home',
+            pageComponent: () => (<Home/>)
+        },
+        {
+            link: '/discography',
+            title: 'discography',
+            pageComponent: () => (<Discography />)
+        },
+        {
+            link: '/about',
+            title: 'about',
+            pageComponent: () => (<About />)
+        },
+        {
+            link: '/lessons',
+            title: 'lessons',
+            pageComponent: () => (<Lessons />)
+        },
+        {
+            link: '/gear',
+            title: 'gear',
+            pageComponent: () => (<Gear />)
+        },
+        {
+            link: '/backing-tracks',
+            title: 'backing tracks',
+            pageComponent: () => (<BackingTracks />)
+        },
+        {
+            link: '/media',
+            title: 'media',
+            pageComponent: () => (<Media />)
+        },
+        {
+            link: '/events',
+            title: 'events',
+            pageComponent: () => (<Events />)
+        }
+    ];
+
+    const headerTabInfo = tabs.map(x => ({link: x.link, title: x.title}))
 
     return (
         <div className='app'>
             <Router>
-                <Header className="header"/>
+                <Header tabInfo={headerTabInfo} className="header" />
                 <div className='page'>
                     <Switch>
-                        <Route path='/events'>
-                            <Events />
-                        </Route>
-                        <Route path='/discography'>
-                            <Discography />
-                        </Route>
-                        <Route path='/about'>
-                            <About />
-                        </Route>
-                        <Route path='/gear'>
-                            <Gear />
-                        </Route>
-                        <Route path='/backing-tracks'>
-                            <BackingTracks />
-                        </Route>
-                        <Route path='/media'>
-                            <Media />
-                        </Route>
-                        <Route path='/lessons'>
-                            <Lessons />
-                        </Route>
-                        <Route path='/'>
-                            <Home />
-                        </Route>
+                        {tabs.map(tab => (
+                            <Route path={tab.link}>
+                                {tab.pageComponent()}
+                            </Route>
+                        ))}
                     </Switch>
-
                 </div>
-                <Footer/>
+
             </Router>
+                <Footer />
         </div>
 
     );
