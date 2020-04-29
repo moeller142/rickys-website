@@ -53,13 +53,13 @@ export default function Events() {
                 <Grid justify='center' item xs={2}>
                     <div className='infoText'>{data.date}</div>
                 </Grid>
-                <Grid justify='center' item xs={3}>
+                <Grid justify='center' item xs={2}>
                     <div className='infoText' onClick={() => onClick(data.link)}>{data.event}</div>
                 </Grid>
-                <Grid justify='center' item xs={3}>
+                <Grid justify='center' item xs={2}>
                     <div className='infoText'>{data.project}</div>
                 </Grid>
-                <Grid justify='center' item xs={3}>
+                <Grid justify='center' item xs={2}>
                     <div className='infoText'>{data.location}</div>
                 </Grid>
             </React.Fragment>
@@ -70,7 +70,7 @@ export default function Events() {
         <div className='header'>Events</div>
         <Grid alignItems="center" justify='center' container spacing={4}>
         {state.length && state.map((event, index) => (
-            <Grid alignItems="center" justify='center' container item xs={15} spacing={1}>
+            <Grid alignItems="center" justify='center' container item xs={12} spacing={1}>
                 <FormRow className='row' data={event}/>
             </Grid>
         ))}
