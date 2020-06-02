@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     color: white;
-    background-color: black;
+    /* background-color: black; */
 } 
 
 .tabs {
@@ -17,6 +17,7 @@
 }
 
 .logo {
+    padding: 20px;
     width: 30%;
     height: auto;
 }

@@ -25,19 +25,30 @@ function App() {
             pageComponent: () => (<Home/>)
         },
         {
-            link: '/discography',
-            title: 'discography',
-            pageComponent: () => (<Discography />)
-        },
-        {
             link: '/about',
             title: 'about',
             pageComponent: () => (<About />)
         },
         {
+            link: '/discography',
+            title: 'discography',
+            pageComponent: () => (<Discography />),
+            subMenu: ['conscious-pilot', 'rix', 'other']
+        },
+        // {
+        //     link: '/backing-tracks',
+        //     title: 'backing tracks',
+        //     pageComponent: () => (<BackingTracks />)
+        // },
+        {
             link: '/lessons',
             title: 'lessons',
             pageComponent: () => (<Lessons />)
+        },
+        {
+            link: '/events',
+            title: 'events',
+            pageComponent: () => (<Events />)
         },
         {
             link: '/gear',
@@ -45,29 +56,20 @@ function App() {
             pageComponent: () => (<Gear />)
         },
         {
-            link: '/backing-tracks',
-            title: 'backing tracks',
-            pageComponent: () => (<BackingTracks />)
-        },
-        {
             link: '/media',
             title: 'media',
             pageComponent: () => (<Media />)
         },
-        {
-            link: '/events',
-            title: 'events',
-            pageComponent: () => (<Events />)
-        }
+
     ];
 
-    const headerTabInfo = tabs.map(x => ({link: x.link, title: x.title}))
+    const headerTabInfo = tabs.map(x => ({link: x.link, title: x.title, subMenu: x.subMenu}))
 
     return (
         <div className='app'>
             <Router>
                 <Header tabInfo={headerTabInfo} className="header" />
-                <div className='page'>
+                <div>
                     <Switch>
                         {tabs.map(tab => (
                             <Route path={tab.link}>

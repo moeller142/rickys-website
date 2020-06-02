@@ -1,0 +1,14 @@
+.album {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.album-text {
+    margin: 0px 25px;
+    max-width: 500px;
+}
+
+.album-title {
+    font-weight: bold;
+}

@@ -4,6 +4,8 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import './events.css';
+import '../styles/pages.css'
+
 import { Button } from '@material-ui/core';
 
 const testData = [
@@ -67,7 +69,7 @@ export default function Events() {
     }
 
     return (<>
-        <div className='header'>Events</div>
+        <div className='title'>Events</div>
         <Grid alignItems="center" justify='center' container spacing={4}>
         {state.length && state.map((event, index) => (
             <Grid alignItems="center" justify='center' container item xs={12} spacing={1}>

@@ -1,0 +1,14 @@
+.about-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-element {
+    width: 50%;
+    white-space: pre-wrap;
+    font-size: 20px;
+}
+
+.about-text {
+    margin: 0px 75px;
+}
