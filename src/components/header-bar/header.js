@@ -6,7 +6,7 @@ import logo from '../../assets/logo_new.png';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import './header.css';
-export default function Header({ tabInfo }) {
+export default function Header({ tabInfo, setPage }) {
     const getWindowDimension = () => {
         const width = window.innerWidth
             || document.documentElement.clientWidth

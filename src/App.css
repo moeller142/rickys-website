@@ -1,19 +1,49 @@
+.photo-dark {
 
+}
+
+.photo-light {
+    background-image: url(./assets/wide_background.jpg);
+
+}
 .app {
     
-    /* background-color: black;     */
     color: white;
     font-family: 'Baloo Chettan 2', cursive;
+    /* Location of the image */
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+  height: 100vh;
+    overflow: scroll;
 }
 
-.header {
-    height: 10%;
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
-html { 
-    background: url(assets/background_photo.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+ .page-body {
+    overflow-y: auto;
+    height:90%;
+}
