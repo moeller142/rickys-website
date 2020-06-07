@@ -7,10 +7,23 @@
     font-size: 16px;
 }
 
+@media all and (max-width: 1000px) {
+    .title {
+        font-size: 32px;
+        margin-bottom: 48px;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    .title {
+        font-size: 48px;
+        margin-bottom: 64px;
+    }
+}
+
 .title {
     text-align: center;
-    font-size: 48px;
-    margin-bottom: 64px;
+   
     text-transform: uppercase;
 }
 

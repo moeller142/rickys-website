@@ -11,6 +11,11 @@
     text-decoration: none;
 }
 
+.side-tab {
+    display: flex;
+    justify-content: space-between;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -19,7 +24,15 @@
 .non-touch .dropdown:hover .dropdown-content {display: block;}
 
 .non-touch .dropdown-content a:hover {
-    background: rgba(240, 151, 80, .75);
+    background: #856d45
+    /* background: rbga(133, 109, 69, .75); */
+    /* background: rgba(240, 151, 80, 1); */
+}
+.side-option {
+    text-decoration: none;
+    margin-left: 30px;
+    padding: 10px;
+    color: gray;
 }
 
 .top-tab {
@@ -30,7 +43,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background: rgba(240, 151, 80, .5);
+    background: rgba(240, 151, 80, 1);
     min-width: 160px;
     z-index: 1;
 }

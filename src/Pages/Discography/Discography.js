@@ -51,7 +51,7 @@ export default function Discography() {
   let { path, url } = useRouteMatch();
 
   const album = ({ iframeSource, title, description }) => (
-    <div className='album'>
+    <div className='album' key={title}>
       <div className='player'>
         <iframe src={iframeSource} title={title} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
