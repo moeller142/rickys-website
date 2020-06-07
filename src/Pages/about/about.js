@@ -9,9 +9,7 @@ export default function About() {
         <div>
             <div className='title'>about</div>
             <div className='about-wrapper'>
-                <div className='about-element about-text'>
                     {aboutText}
-                </div>
             </div>
         </div>
 

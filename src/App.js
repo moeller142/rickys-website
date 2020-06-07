@@ -18,6 +18,14 @@ import Header from './components/header-bar/header';
 import Footer from './components/footer-bar/footer';
 import backgroundImage from './assets/background_photo.jpg';
 
+export default function AppWithRouter() {
+    return (
+        <Router>
+            <App/>
+        </Router>
+    )
+}
+
 function App() {
     const tabs = [
        
@@ -72,19 +80,18 @@ function App() {
     ];
 
     const headerTabInfo = tabs.map(x => ({ link: x.link, title: x.title, subMenu: x.subMenu }))
-    // let location = useLocation();
-    // console.log('location', location);
+    let location = useLocation();
+    console.log('location', location);
 
-    // const [isDarkPage, setIsDarkPage] = useState(false);
-    // const [page, setPage] = useState('home');
-    // const [appClass, setAppClass] = useState('')
+    const [appClass, setAppClass] = useState('app photo-light')
     
-    // useEffect(() => {
-    //     setIsDarkPage(page !== 'home')
-    // }, [page]);
+    useEffect(() => {
+        const isHome = location.pathname === '/home';
+        setAppClass(isHome ? 'app photo-light' : 'app photo-dark');
+    }, [location]);
     
     return (
-        <div className='app photo-light'>
+        <div className={appClass}>
             <div className='content'>
 
             <Header tabInfo={headerTabInfo} />
@@ -109,5 +116,3 @@ function App() {
 
     );
 }
-
-export default App;

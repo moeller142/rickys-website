@@ -23,8 +23,18 @@ a:hover {
 }
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+.top-tab:hover {
+    background-color: #f09750;
+    opacity: 75%;
 
+}
+.top-tab {
+    padding: 3px 5px;
+
+}
 
 .tab {
     margin: 30px;
@@ -32,6 +42,10 @@ a:hover {
     justify-content: space-around;
     flex-direction: column; */
 }
+/* .tab:hover {
+    color: #f09750
+
+} */
 
 .dropdown-content {
     display: none;
