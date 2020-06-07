@@ -15,15 +15,25 @@
     flex-direction: row;
 
 }
-
+.hamburger-button {
+    margin: 20px;
+}
+.small-logo {
+    width: 100px;
+    height: auto;
+}
 .logo {
+    width: 400px;
+    height: auto;
     /* min-width: ; */
     padding: 20px;
-    width: 30%;
-    height: auto;
+    /* width: 30%; */
+    /* height: auto; */
 }
 
 .hamburger-menu {
+    display: flex;
+    flex-direction: column;
     width: 250px;
     background-color: #25272C;
     height: 100%;

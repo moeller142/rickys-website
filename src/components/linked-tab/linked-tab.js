@@ -5,7 +5,7 @@ export default function LinkedTab({ sideMenu, link, title, options, colorStyle }
     const tabLinkClass = 'tabText ' + colorStyle;
 
     return (
-    <div className='tab dropdown' >
+    <div className='dropdown' >
         <div className='top-tab'>
             <a className={tabLinkClass} href={link}> {title} </a>
         </div>

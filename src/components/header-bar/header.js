@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LinkedTab from '../linked-tab/linked-tab'
 import logo from '../../assets/logo_new.png';
-
+import small_logo from '../../assets/small_logo.png';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import './header.css';
@@ -15,8 +15,6 @@ export default function Header({ tabInfo }) {
     const [width, setWidth] = useState(getWindowDimension());
     const [sideMenuOpen, openSideMenuOpen] = useState(false);
 
-    
-
     useEffect(() => {
         const handleResize = () => {
             setWidth(getWindowDimension())
@@ -25,18 +23,26 @@ export default function Header({ tabInfo }) {
         window.addEventListener('resize', handleResize, false)
     }, []);
 
-    const minLargeWidth = 1200;
 
     const topMenu = (tabs) => tabs.map(tab =>
                 <LinkedTab colorStyle='dark' key={tab.title} sideMenu={false} link={tab.link} title={tab.title} options={tab.subMenu}/>);
 
-    const sideMenu = () => <MenuIcon onClick={() => openSideMenuOpen(true)} className='tab' fontSize='large' />;
+    const sideMenu = () => <MenuIcon onClick={() => openSideMenuOpen(true)} className='hamburger-button ' fontSize='large' />;
 
-    let displayTabs;
-    if (width > minLargeWidth) {
-        displayTabs = topMenu;
-    } else {
-        displayTabs = sideMenu;
+    const displayTabs = (width) => {
+        if(width > 1200) {
+            return topMenu;
+        } else {
+            return sideMenu;
+        }
+    }
+
+    const reactiveLogo = (width) => {
+        if(width > 600) {
+            return (<img className='logo' src={logo} alt='idk'/>)
+        } else {
+            return (<img className='small-logo' src={small_logo} alt='idk'/>)
+        }
     }
 
     return (
@@ -47,9 +53,11 @@ export default function Header({ tabInfo }) {
                 </div>
             </Drawer>
             <div className='nav-bar'>
-                <img className='logo' src={logo} alt='idk' />
+                <a key='logo' href='/home'>
+                    {reactiveLogo(width)}
+                </a>
                 <div className='tabs'>
-                    {displayTabs(tabInfo)}
+                    {displayTabs(width)(tabInfo)}
                 </div>
             </div>
         </>

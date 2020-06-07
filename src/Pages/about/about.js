@@ -7,7 +7,7 @@ export default function About() {
     return (
         <div>
             <div className='title'>about</div>
-            <div className='about-wrapper'>
+            <div className='about-wrapper font-large'>
                     {aboutText}
             </div>
         </div>

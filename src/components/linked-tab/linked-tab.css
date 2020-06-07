@@ -21,6 +21,9 @@ a:hover {
     position: relative;
     display: inline-block;
 }
+.dropdown:hover {
+    /* background-color: #f09750; */
+}
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown-content a:hover {
@@ -32,20 +35,9 @@ a:hover {
 
 }
 .top-tab {
-    padding: 3px 5px;
-
+    margin: 10px 0px 0px;
+    padding: 10px 20px;
 }
-
-.tab {
-    margin: 30px;
-    /* display: flex;
-    justify-content: space-around;
-    flex-direction: column; */
-}
-/* .tab:hover {
-    color: #f09750
-
-} */
 
 .dropdown-content {
     display: none;

@@ -1,15 +1,28 @@
 
 
 .rowWrapper:hover {
-    background: rgba(186, 167, 115, 0.3)
+    background: rgba(186, 167, 115, 0.3);
+    cursor: pointer;
 }
 td {
     padding: 25px;
 }
-td:hover {
-    cursor: pointer;
+.small-row-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 25px 25px;
 }
-.eventWrapper {
+.right-side {
+    text-align: right;
+}
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eventWrapper { 
     text-transform: uppercase;
     width: 100%;
     font-family: 'Roboto Condensed', sans-serif;

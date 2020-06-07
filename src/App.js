@@ -68,15 +68,13 @@ function App() {
             link: '/media',
             title: 'media',
             pageComponent: () => (<Media />)
-        },
-        {
-            link: '/',
-            title: '',
-            pageComponent: () => (<Home />)
-
         }
-
     ];
+    const nonTabLink = [{
+        link: '/',
+        title: '',
+        pageComponent: () => (<Home />)
+    }];
 
     const headerTabInfo = tabs.map(x => ({ link: x.link, title: x.title, subMenu: x.subMenu }))
     let location = useLocation();
@@ -97,7 +95,7 @@ function App() {
                 <Router>
                     <div >
                         <Switch>
-                            {tabs.map(tab => (
+                            {tabs.concat(nonTabLink).map(tab => (
                                 <Route key={tab.title} path={tab.link}>
                                     {tab.pageComponent()}
                                 </Route>

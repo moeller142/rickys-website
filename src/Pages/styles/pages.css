@@ -3,6 +3,10 @@
     font-size: 24px;
 }
 
+.font-small {
+    font-size: 16px;
+}
+
 .title {
     text-align: center;
     font-size: 48px;
