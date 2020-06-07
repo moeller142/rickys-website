@@ -1,10 +1,24 @@
 
 
-
-.infoText {
-    font-size: 24px;
+.rowWrapper:hover {
+    background: rgba(186, 167, 115, 0.3)
+}
+td {
+    padding: 25px;
+}
+td:hover {
+    cursor: pointer;
+}
+.eventWrapper {
+    text-transform: uppercase;
+    width: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.row {
-    
+table {
+    border-collapse: collapse;
+}
+
+.event-title {
+    color:#e88f48;
 }

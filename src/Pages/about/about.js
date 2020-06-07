@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles/pages.css'
+import '../styles/pages.css'    
 import { aboutText } from './about-text';
-import photo from '../../assets/rix-werkout.jpg';
 import './about.css'
 
 export default function About() {

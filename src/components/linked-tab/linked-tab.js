@@ -1,15 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './linked-tab.css'
 
 export default function LinkedTab({ sideMenu, link, title, options, colorStyle }) {
-    const [optionsOpen, setOptionsOpen] = useState(false);
-
-    const toggleOptionsOpen = () => {
-        setOptionsOpen(!optionsOpen);
-        console.log('toggle', optionsOpen, options);
-
-    }
-
     const tabLinkClass = 'tabText ' + colorStyle;
 
     return (
@@ -19,7 +11,7 @@ export default function LinkedTab({ sideMenu, link, title, options, colorStyle }
         </div>
         {options &&
             <div className='dropdown-content' > {
-                options.map(option => (<a href={`${link}/${option}`} > {option} </a>
+                options.map(option => (<a href={`${link}/${option}`} key={option}> {option} </a>
                 ))
             } </div>
         }

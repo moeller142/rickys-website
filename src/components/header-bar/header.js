@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import LinkedTab from '../linked-tab/linked-tab'
-// import logo from '../../assets/logo.jpg'
 import logo from '../../assets/logo_new.png';
 
 import MenuIcon from '@material-ui/icons/Menu';
@@ -16,11 +15,12 @@ export default function Header({ tabInfo }) {
     const [width, setWidth] = useState(getWindowDimension());
     const [sideMenuOpen, openSideMenuOpen] = useState(false);
 
-    const handleResize = () => {
-        setWidth(getWindowDimension())
-    };
+    
 
     useEffect(() => {
+        const handleResize = () => {
+            setWidth(getWindowDimension())
+        };
         handleResize();
         window.addEventListener('resize', handleResize, false)
     }, []);
@@ -28,7 +28,7 @@ export default function Header({ tabInfo }) {
     const minLargeWidth = 1200;
 
     const topMenu = (tabs) => tabs.map(tab =>
-                <LinkedTab colorStyle='dark' sideMenu={false} link={tab.link} title={tab.title} options={tab.subMenu}/>);
+                <LinkedTab colorStyle='dark' key={tab.title} sideMenu={false} link={tab.link} title={tab.title} options={tab.subMenu}/>);
 
     const sideMenu = () => <MenuIcon onClick={() => openSideMenuOpen(true)} className='tab' fontSize='large' />;
 
@@ -43,7 +43,7 @@ export default function Header({ tabInfo }) {
         <>
             <Drawer anchor='right' open={sideMenuOpen} onClose={() => openSideMenuOpen(false)}>
                 <div className="hamburger-menu">
-                    {tabInfo.map(tab => <LinkedTab sideMenu={true} link={tab.link} title={tab.title} colorStyle='light' options={tab.subMenu}/>)}
+                    {tabInfo.map(tab => <LinkedTab key={tab.title} sideMenu={true} link={tab.link} title={tab.title} colorStyle='light' options={tab.subMenu}/>)}
                 </div>
             </Drawer>
             <div className='nav-bar'>

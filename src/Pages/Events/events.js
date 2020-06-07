@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import Tabletop from 'tabletop';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import './events.css';
 import '../styles/pages.css'
 
-import { Button } from '@material-ui/core';
-
 const testData = [
+    {
+        date: '1/2/20',
+        event: 'resonance music festival',
+        project: 'Conscious Pilot',
+        location: 'Slippery Rock, Pennsylvania',
+        link: 'https://google.com'
+    },
     {
         date: '1/2/20',
         event: 'St Fattys Day',
@@ -45,38 +46,23 @@ export default function Events() {
         // })
     }, []);
 
-    function FormRow({data}) {
-        function onClick(link) {
-            var win = window.open(link, '_blank');
-            win.focus()
-        }
-        return (
-            <React.Fragment >
-                <Grid justify='center' item xs={2}>
-                    <div className='infoText'>{data.date}</div>
-                </Grid>
-                <Grid justify='center' item xs={2}>
-                    <div className='infoText' onClick={() => onClick(data.link)}>{data.event}</div>
-                </Grid>
-                <Grid justify='center' item xs={2}>
-                    <div className='infoText'>{data.project}</div>
-                </Grid>
-                <Grid justify='center' item xs={2}>
-                    <div className='infoText'>{data.location}</div>
-                </Grid>
-            </React.Fragment>
-        );
+    function onClick(link) {
+        var win = window.open(link, '_blank');
+        win.focus()
     }
-
     return (<>
         <div className='title'>Events</div>
-        <Grid alignItems="center" justify='center' container spacing={4}>
-        {state.length && state.map((event, index) => (
-            <Grid alignItems="center" justify='center' container item xs={12} spacing={1}>
-                <FormRow className='row' data={event}/>
-            </Grid>
-        ))}
-
-        </Grid>
+        <table className='eventWrapper font-large'>
+            {
+                state.map(event=>(
+                <tr onClick={() => onClick(event.link)} className='rowWrapper' key={event.event}>
+                    <td>{event.project}</td>
+                    <td>{event.date}</td>
+                    <td className='event-title' >{event.event}</td>
+                    <td>{event.location}</td>
+                </tr>))
+            }
+        </table>
+    
     </>)
 }

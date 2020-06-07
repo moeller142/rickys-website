@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/pages.css'
-import { useRouteMatch, Link, Switch, Route } from 'react-router-dom';
+import { useRouteMatch, Switch, Route } from 'react-router-dom';
 import './discography.css'
 
 const consciousPilotData = [
@@ -44,6 +44,8 @@ const joyRideData = {
 
   ]
 }
+
+// youtube, apple music, google, bandcamp, sound cloud 
 
 export default function Discography() {
   let { path, url } = useRouteMatch();

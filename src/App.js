@@ -16,7 +16,6 @@ import Gear from './Pages/Gear/Gear';
 import Media from './Pages/media/media';
 import Header from './components/header-bar/header';
 import Footer from './components/footer-bar/footer';
-import backgroundImage from './assets/background_photo.jpg';
 
 export default function AppWithRouter() {
     return (
@@ -81,7 +80,6 @@ function App() {
 
     const headerTabInfo = tabs.map(x => ({ link: x.link, title: x.title, subMenu: x.subMenu }))
     let location = useLocation();
-    console.log('location', location);
 
     const [appClass, setAppClass] = useState('app photo-light')
     
@@ -100,7 +98,7 @@ function App() {
                     <div >
                         <Switch>
                             {tabs.map(tab => (
-                                <Route path={tab.link}>
+                                <Route key={tab.title} path={tab.link}>
                                     {tab.pageComponent()}
                                 </Route>
                             ))}

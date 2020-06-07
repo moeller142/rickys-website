@@ -1,12 +1,13 @@
 
-/* html, body, #page, #page>div {
-    margin-top: 100px;
-} */
+.font-large {
+    font-size: 24px;
+}
 
 .title {
     text-align: center;
     font-size: 48px;
     margin-bottom: 64px;
+    text-transform: uppercase;
 }
 
 .sub-title {

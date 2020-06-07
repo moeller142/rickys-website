@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './footer.css';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 
 
 export default function Footer() {
-    const onClick = () => console.log("click")
     return (
         <div className='footer'>
             <div className='center'>
@@ -20,9 +19,6 @@ export default function Footer() {
                 <IconButton onClick={() => window.open('https://www.youtube.com/channel/UCL_E9INNCDg84_Cvx35ydHw?view_as=subscriber')} aria-label="yt" >
                     <YouTubeIcon className='icon' fontSize='large' />
                 </IconButton>
-                {/* <InstagramIcon onClick={onClick} className='icon' fontSize='large'/> */}
-
-
             </div>
         </div>
     )
