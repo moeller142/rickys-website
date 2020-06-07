@@ -52,7 +52,7 @@ export default function Discography() {
 
   const album = ({ iframeSource, title, description }) => (
     <div className='album'>
-      <div>
+      <div className='player'>
         <iframe src={iframeSource} title={title} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
       <div className='album-text'>
