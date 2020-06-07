@@ -1,6 +1,6 @@
 
 
-.rowWrapper:hover {
+.non-touch .rowWrapper:hover {
     background: rgba(186, 167, 115, 0.3);
     cursor: pointer;
 }

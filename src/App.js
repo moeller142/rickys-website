@@ -76,14 +76,20 @@ function App() {
         pageComponent: () => (<Home />)
     }];
 
+
     const headerTabInfo = tabs.map(x => ({ link: x.link, title: x.title, subMenu: x.subMenu }))
     let location = useLocation();
 
     const [appClass, setAppClass] = useState('app photo-light')
     
     useEffect(() => {
-        const isHome = location.pathname === '/home';
-        setAppClass(isHome ? 'app photo-light' : 'app photo-dark');
+        const touchsupport = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)
+        const isHome = location.pathname === '/home' || location.pathname === '/';
+        var appClass = isHome ? 'app photo-light' : 'app photo-dark';
+        if (!touchsupport) {
+            appClass += ' non-touch';
+        }
+        setAppClass(appClass);
     }, [location]);
     
     return (

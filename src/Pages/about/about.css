@@ -1,7 +1,16 @@
 .about-wrapper {
-    width: 50%;
     margin: 0 auto;
     white-space: pre-wrap;
+}
+@media all and (min-width: 1000px) {
+    .about-wrapper {
+        width: 900px;
+    }
+  }
 
+@media all and (max-width: 1000px) {
+    .about-wrapper {
+        margin: 20px;
+    }
 }
 

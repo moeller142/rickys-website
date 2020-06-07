@@ -25,7 +25,7 @@ export default function Header({ tabInfo }) {
 
 
     const topMenu = (tabs) => tabs.map(tab =>
-                <LinkedTab colorStyle='dark' key={tab.title} sideMenu={false} link={tab.link} title={tab.title} options={tab.subMenu}/>);
+                <LinkedTab colorStyle='light' key={tab.title} sideMenu={false} link={tab.link} title={tab.title} options={tab.subMenu}/>);
 
     const sideMenu = () => <MenuIcon onClick={() => openSideMenuOpen(true)} className='hamburger-button ' fontSize='large' />;
 
@@ -49,7 +49,7 @@ export default function Header({ tabInfo }) {
         <>
             <Drawer anchor='right' open={sideMenuOpen} onClose={() => openSideMenuOpen(false)}>
                 <div className="hamburger-menu">
-                    {tabInfo.map(tab => <LinkedTab key={tab.title} sideMenu={true} link={tab.link} title={tab.title} colorStyle='light' options={tab.subMenu}/>)}
+                    {tabInfo.map(tab => <LinkedTab key={tab.title} sideMenu={true} link={tab.link} title={tab.title} colorStyle='dark' options={tab.subMenu}/>)}
                 </div>
             </Drawer>
             <div className='nav-bar'>
