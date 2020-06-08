@@ -5,8 +5,20 @@
 
 .photo-light {
     background-image: url(./assets/wide_background.jpg);
-
 }
+
+@media all and (min-width: 1000px) {
+    .app {
+        background-position: center center;
+    }
+}
+
+@media all and (max-width: 1000px) {
+    .app {
+        background-position: 75% 50%;
+    }
+}
+
 .app {
     
     color: white;
@@ -14,7 +26,6 @@
     /* Location of the image */
   
   /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
   
   /* Background image doesn't tile */
   background-repeat: no-repeat;
@@ -48,10 +59,3 @@
     overflow-y: auto;
     height:90%;
 }
-
-/* @font-face {
-    font-family: 'Andale Mono Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Andale Mono Regular'), url('ANDALEMO.woff') format('woff');
-    } */
