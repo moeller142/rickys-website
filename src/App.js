@@ -76,6 +76,12 @@ function App() {
         pageComponent: () => (<Home />)
     }];
 
+    const appHeight = () => {
+        const doc = document.documentElement
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+    }
+    window.addEventListener('resize', appHeight)
+    appHeight();
 
     const headerTabInfo = tabs.map(x => ({ link: x.link, title: x.title, subMenu: x.subMenu }))
     let location = useLocation();
