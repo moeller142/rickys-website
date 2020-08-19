@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './events.css';
 import '../styles/pages.css'
 
+const NO_EVENTS = 'No events scheduled at this time';
+
 const testData = [
     {
         date: '1/2/20',

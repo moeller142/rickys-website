@@ -31,3 +31,20 @@
     font-weight: bold;
     font-size: 24px;
 }
+
+.text-wrapper {
+    margin: 0 auto;
+    white-space: pre-wrap;
+}
+@media all and (min-width: 1000px) {
+    .text-wrapper {
+        width: 900px;
+    }
+  }
+
+@media all and (max-width: 1000px) {
+    .text-wrapper {
+        margin: 20px;
+    }
+}
+

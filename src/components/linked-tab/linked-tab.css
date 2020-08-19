@@ -35,6 +35,9 @@
     color: gray;
 }
 
+.form-title {
+    
+}
 .top-tab {
     margin: 10px 0px 0px;
     padding: 10px 20px;
@@ -48,7 +51,7 @@
     z-index: 1;
 }
 
-.non-touch .dropdown:hover .top-tab {
+.top-tab:hover, .top-tab:active {
     background: rgba(240, 151, 80, .75);
 }
 
