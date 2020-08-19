@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/pages.css';
 import './lessons.css';
-import { Dialog, TextField, DialogTitle, DialogContent, DialogActions, Select, InputLabel, MenuItem, Switch, createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { Dialog, TextField, Select, InputLabel, MenuItem, Switch, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
@@ -10,7 +10,7 @@ import {
 import DateFnsUtils from '@date-io/date-fns';
 import emailjs from 'emailjs-com';
 import './lessons.css';
-import SmartTextField, { validators } from '../../components/smart-text-field/smart-text-field';
+import SmartTextField from '../../components/smart-text-field/smart-text-field';
 import { sleep } from '../../services/utils';
 import Button from '../../components/button/button';
 const theme = createMuiTheme({
@@ -75,7 +75,9 @@ export default function Lessons() {
             date,
             time,
             email,
-            message
+            message,
+            oneTime,
+            preferredDay,
         }
         setSubmitAttempted(true);
         if (errors.some(e => e)) {
@@ -84,18 +86,22 @@ export default function Lessons() {
         }
         setShowValidationMessage(false);
         setSendingEmail(true);
-        console.log('SENDING EMAIL');
-        sleep(1000).then(() => {
-            setSendingEmail(false);
-        })
-        // emailjs.send('gmail', 'ricky_lesson', emailConfig, 'user_bm3avkDlVWMcN83cU7dPN')
-        //     .then((result) => {
-        //         setSendingEmail(false);
-        //         setOpen(false);
-        //         resetForm();
-        //     }, (error) => {
-        //         setSendingEmail(false);
-        //     });
+
+
+        // console.log('SENDING EMAIL');
+        // sleep(1000).then(() => {
+        //     setSendingEmail(false);
+        // })
+
+
+        emailjs.send('gmail', 'ricky_lesson', emailConfig, 'user_bm3avkDlVWMcN83cU7dPN')
+            .then((result) => {
+                setSendingEmail(false);
+                setOpen(false);
+                resetForm();
+            }, (error) => {
+                setSendingEmail(false);
+            });
 
     }
 
@@ -106,7 +112,6 @@ export default function Lessons() {
                 <div>Starting at $20.00</div>
                 <div>{lessonText}</div>
                 <Button onClick={() => setOpen(true)} label='BOOK ONLINE LESSON'></Button>
-                {/* <button onClick={() => setOpen(true)}>BOOK ONLINE LESSON</button> */}
             </div>
             <Dialog
                 open={open}
@@ -121,12 +126,8 @@ export default function Lessons() {
                             <span>
                                 <SmartTextField required={true} validators={['required']} value={firstName} setValue={setFirstName} label={'First Name'} submitAttempted={submitAttempted} setError={setFirstNameError} />
                                 <SmartTextField required={true} validators={['required']} value={lastName} setValue={setLastName} label={'Last Name'} submitAttempted={submitAttempted} setError={setLastNameError} />
-
-                                {/* <TextField variant={textBoxVariant} error={!firstName} required value={firstName} onChange={(event) => setFirstName(event.target.value)} label='First Name' /> */}
-                                {/* <TextField variant={textBoxVariant} required value={lastName} onChange={(event) => setLastName(event.target.value)} label='Last Name' /> */}
                             </span>
                             <SmartTextField required={true} validators={['required', 'email']} value={email} setValue={setEmail} label={'Email'} submitAttempted={submitAttempted} setError={setEmailError} />
-                            {/* <TextField variant={t   extBoxVariant} required value={email} onChange={(event) => setEmail(event.target.value)} label='Email Address' /> */}
                             <div className='input-field'>
                                 <InputLabel id="demo-simple-select-label">Instrument</InputLabel>
                                 <Select
@@ -205,7 +206,6 @@ export default function Lessons() {
                                 </div>
                                 <div>
                                     <Button disabled={sendingEmail} onClick={() => sendEmail()} label='Submit'></Button>
-                                    {/* <button disabled={sendingEmail} onClick={() => sendEmail()}>Submit</button> */}
                                 </div>
                             </div>
                         </div>
