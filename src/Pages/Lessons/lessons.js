@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/pages.css';
 import './lessons.css';
-import { Dialog, TextField, Select, InputLabel, MenuItem, Switch, createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { Dialog, TextField, Select, InputLabel, MenuItem, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
@@ -13,6 +13,7 @@ import './lessons.css';
 import SmartTextField from '../../components/smart-text-field/smart-text-field';
 import { sleep } from '../../services/utils';
 import Button from '../../components/button/button';
+import Switch from '../../components/switch/switch';
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -43,7 +44,7 @@ export default function Lessons() {
     const [date, setDate] = useState(new Date());
     const [time, setTime] = useState(new Date());
     const [message, setMessage] = useState('');
-    const [oneTime, setOneTime] = useState(true);
+    const [reoccurringLesson, setReoccurringLesson] = useState(true);
     const [preferredDay, setPreferredDay] = useState('');
     const [sendingEmail, setSendingEmail] = useState(false);
     const [submitAttempted, setSubmitAttempted] = useState(false);
@@ -59,11 +60,12 @@ export default function Lessons() {
         setDate(new Date());
         setTime(new Date());
         setMessage('');
-        setOneTime(true);
+        setReoccurringLesson(true);
         setPreferredDay('');
         setSendingEmail(false);
         setShowValidationMessage(false);
         setFirstNameError(true);
+        setSubmitAttempted(false);
     }
 
 
@@ -72,12 +74,12 @@ export default function Lessons() {
         const emailConfig = {
             name: `${firstName} ${lastName}`,
             instrument,
-            date,
-            time,
+            date: reoccurringLesson ? null : '',
+            time: reoccurringLesson ? null : '',
             email,
             message,
-            oneTime,
-            preferredDay,
+            reoccurringLesson,
+            preferredDay: reoccurringLesson ? preferredDay : '',
         }
         setSubmitAttempted(true);
         if (errors.some(e => e)) {
@@ -119,7 +121,6 @@ export default function Lessons() {
             >
                 <div className='lesson-modal'>
                     <div className='sub-title'>LESSON FORM</div>
-                    <ThemeProvider theme={theme}>
 
                         <div className='form'>
                             {showValidationMessage && <div className='validation-message'>**Please correct the fields in red**</div>}
@@ -142,12 +143,9 @@ export default function Lessons() {
                                 </Select>
                             </div>
                             <div className='input-field'>
-                                <span> One Time
-                    <Switch checked={oneTime} onChange={(event) => setOneTime(event.target.checked)}></Switch>
-                    Reoccurring
-                    </span>
+                                    <Switch value={reoccurringLesson} setValue={setReoccurringLesson} leftOption='One Time' rightOption='Reoccurring'></Switch>
                             </div>
-                            {oneTime &&
+                            {reoccurringLesson &&
                                 <div className='input-field'>
                                     <InputLabel>Which Day do you Prefer?</InputLabel>
 
@@ -160,7 +158,7 @@ export default function Lessons() {
                                     </Select>
                                 </div>
                             }
-                            {!oneTime && <div>
+                            {!reoccurringLesson && <div>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <InputLabel>Preferred Date</InputLabel>
 
@@ -209,7 +207,6 @@ export default function Lessons() {
                                 </div>
                             </div>
                         </div>
-                    </ThemeProvider>
                 </div>
             </Dialog>
         </>
