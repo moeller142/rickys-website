@@ -31,8 +31,10 @@ export default function Events() {
     }, [state]);
 
     function onClick(link) {
-        var win = window.open(link, '_blank');
-        win.focus()
+        if(link) {
+            var win = window.open(link, '_blank');
+            win.focus()
+        }
     }
 
     const fullTable = (state) => {
@@ -81,6 +83,11 @@ export default function Events() {
 
     return (<>
         <div className='title'>Events</div>
-        {reactiveTable(state, width)}
+        {state.length && reactiveTable(state, width)}
+        {!state.length &&
+        <div>
+            {NO_EVENTS}
+        </div>
+        }
     </>)
 }
