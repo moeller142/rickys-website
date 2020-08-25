@@ -1,32 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './events.css';
 import '../styles/pages.css'
+import { initEventsSheet } from '../../services/google-sheet.service';
 
 const NO_EVENTS = 'No events scheduled at this time';
-
-const testData = [
-    {
-        date: '1/2/20',
-        event: 'resonance music festival',
-        project: 'Conscious Pilot',
-        location: 'Slippery Rock, Pennsylvania',
-        link: 'https://google.com'
-    },
-    {
-        date: '1/2/20',
-        event: 'St Fattys Day',
-        project: 'Conscious Pilot',
-        location: 'Woodlands Tavern',
-        link: 'https://google.com'
-    },
-    {
-        date: '1/3/20',
-        event: 'Other event',
-        project: 'Ricky Feria Trio',
-        location: 'The Summit',
-        link: 'https://google.com'
-    }
-]
 
 export default function Events() {
     const [state, setState] = useState([]);
@@ -46,21 +23,12 @@ export default function Events() {
     }, []);
 
     useEffect(() => {
-        
-    }, [width]);
-
-    // https://docs.google.com/spreadsheets/d/e/2PACX-1vTPzVCSpk2gZ0PGb0iZGX1M5hawDgMsRGpBW0pQCa9NpVAO0hkztu6bGqfHcYTaOHBIG9HzjauyO9jD/pubhtml
+        initEventsSheet(setState);
+    }, []);
 
     useEffect(() => {
-        setState(testData);
-        // Tabletop.init({
-        //     key: '1NzkJHy0XFj_i3-NZR8yN6j1kShYJREU3xG5mVuOfGuA',
-        //     callback: googleData => {
-        //         setState(googleData);
-        //     },
-        //     simpleSheet: true
-        // })
-    }, []);
+        console.log('state', state);
+    }, [state]);
 
     function onClick(link) {
         var win = window.open(link, '_blank');
