@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './events.css';
 import '../styles/pages.css'
 import { initEventsSheet } from '../../services/google-sheet.service';
+import { CircularProgress } from '@material-ui/core';
 
 const NO_EVENTS = 'No events scheduled at this time';
 
 export default function Events() {
     const [state, setState] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const getWindowDimension = () => {
         const width = window.innerWidth
@@ -23,25 +25,29 @@ export default function Events() {
     }, []);
 
     useEffect(() => {
+        setLoading(true);
         initEventsSheet(setState);
     }, []);
 
     useEffect(() => {
-        console.log('state', state);
+        if (state.length) {
+            setLoading(false);
+        }
     }, [state]);
 
     function onClick(link) {
-        if(link) {
+        if (link) {
             var win = window.open(link, '_blank');
             win.focus()
         }
     }
 
-    const fullTable = (state) => {
-       return (
-            <table className='eventWrapper font-large'>
-                    {
-                        state.map(event=>(
+    const fullTable = (state) => 
+        (
+            state.length && 
+                <table className='eventWrapper font-large'>
+                {
+                    state.map(event => (
                         <tr onClick={() => onClick(event.link)} className='rowWrapper' key={event.event}>
                             <td></td>
                             <td>{event.project}</td>
@@ -49,15 +55,14 @@ export default function Events() {
                             <td className='event-title' >{event.event}</td>
                             <td>{event.location}</td>
                         </tr>))
-                    }
-                </table>
-        )
-    };
+                }
+            </table>
+        );
 
     const smallTable = (state) => (
         <div className='eventWrapper font-large'>
             {
-                state.map(event =>(
+                state.map(event => (
                     <div onClick={() => onClick(event.link)} className='rowWrapper small-row-wrapper'>
                         <div className='left-side'> {event.date} </div>
                         <div className='right-side'>
@@ -66,7 +71,7 @@ export default function Events() {
                             <div className='font-small'>{event.project}</div>
                         </div>
                     </div>
-                    
+
                 ))
             }
         </div>
@@ -84,10 +89,15 @@ export default function Events() {
     return (<>
         <div className='title'>Events</div>
         {state.length && reactiveTable(state, width)}
-        {!state.length &&
-        <div>
-            {NO_EVENTS}
+        {loading &&
+        <div className="loading-spinner">
+            <CircularProgress />
         </div>
+        }
+        {!state.length && !loading &&
+            <div>
+                {NO_EVENTS}
+            </div>
         }
     </>)
 }

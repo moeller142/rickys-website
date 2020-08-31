@@ -20,6 +20,10 @@
     width: 100px;
     height: auto;
 }
+.small-logo:active {
+    background-color:  rgba(240, 151, 80, 1);
+}
+
 .logo {
     width: 400px;
     height: auto;

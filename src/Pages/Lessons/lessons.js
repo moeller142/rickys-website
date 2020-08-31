@@ -25,7 +25,7 @@ const theme = createMuiTheme({
         },
     },
 });
-const lessonText = `Learn guitar, bass, or study mucis theory and improvisation from the comfort of your own home.  Ricky Feria's online lessons are tailored to the individual, from beginner to advanced levels.
+const lessonText = `Learn guitar, bass, or study music theory and improvisation from the comfort of your own home.  Ricky Feria's online lessons are tailored to the individual, from beginner to advanced levels.
 
 Lessons can be taught via Zoom and any sheet music and tabs are provided for the student.`
 
@@ -112,7 +112,8 @@ export default function Lessons() {
             <div className='title'>Lessons</div>
             <div className='text-wrapper font-large'>
                 <div>Starting at $20.00</div>
-                <div>{lessonText}</div>
+                <br/>
+                <div className='text-margin'>{lessonText}</div>
                 <Button onClick={() => setOpen(true)} label='BOOK ONLINE LESSON'></Button>
             </div>
             <Dialog
@@ -120,13 +121,13 @@ export default function Lessons() {
                 onClose={() => setOpen(false)}
             >
                 <div className='lesson-modal'>
-                    <div className='sub-title'>LESSON FORM</div>
+                <div className='sub-title modal-title'>LESSON FORM</div>
 
                         <div className='form'>
                             {showValidationMessage && <div className='validation-message'>**Please correct the fields in red**</div>}
                             <span>
-                                <SmartTextField required={true} validators={['required']} value={firstName} setValue={setFirstName} label={'First Name'} submitAttempted={submitAttempted} setError={setFirstNameError} />
-                                <SmartTextField required={true} validators={['required']} value={lastName} setValue={setLastName} label={'Last Name'} submitAttempted={submitAttempted} setError={setLastNameError} />
+                                <SmartTextField className='input-field' required={true} validators={['required']} value={firstName} setValue={setFirstName} label={'First Name'} submitAttempted={submitAttempted} setError={setFirstNameError} />
+                                <SmartTextField className='input-field' required={true} validators={['required']} value={lastName} setValue={setLastName} label={'Last Name'} submitAttempted={submitAttempted} setError={setLastNameError} />
                             </span>
                             <SmartTextField required={true} validators={['required', 'email']} value={email} setValue={setEmail} label={'Email'} submitAttempted={submitAttempted} setError={setEmailError} />
                             <div className='input-field'>
@@ -160,7 +161,7 @@ export default function Lessons() {
                             }
                             {!reoccurringLesson && <div>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                    <InputLabel>Preferred Date</InputLabel>
+                                    {/* <InputLabel>Preferred Date</InputLabel> */}
 
                                     <KeyboardDatePicker
                                         disableToolbar
@@ -168,19 +169,19 @@ export default function Lessons() {
                                         format="MM/dd/yyyy"
                                         margin="normal"
                                         id="date-picker-inline"
-                                        label="Date picker inline"
+                                        label="Preferred Date"
                                         value={date}
                                         onChange={(event) => setDate(event)}
                                         KeyboardButtonProps={{
                                             'aria-label': 'change date',
                                         }}
                                     />
-                                    <InputLabel>Preferred Time</InputLabel>
+                                    {/* <InputLabel>Preferred Time</InputLabel> */}
 
                                     <KeyboardTimePicker
                                         margin="normal"
                                         id="time-picker"
-                                        label=""
+                                        label="Preferred Time"
                                         value={time}
                                         onChange={(event) => setTime(event)}
                                         KeyboardButtonProps={{
